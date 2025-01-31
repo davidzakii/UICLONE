@@ -1,0 +1,244 @@
+/* glopal style */
+:root {
+  --main-color: #2196f3;
+  --main-transition: 0.3s;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cairo', system-ui;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style: none;
+}
+.container {
+  width: 90%;
+  margin: auto;
+}
+/* end glopal style */
+/* start header  */
+header {
+  -webkit-box-shadow: 0 0 10px #ddd;
+  --moz--box-shadow: 0 0 10px #ddd;
+  box-shadow: 0 0 10px #ddd;
+  height: 70px;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+header .container .logo {
+  padding: 20px;
+}
+.container .logo a {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--main-color);
+}
+
+header .container ul {
+  display: flex;
+  justify-content: center;
+}
+
+header .container ul li {
+  padding: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+header .container ul > li:first-child {
+  display: none;
+}
+header .container ul li::after {
+  content: '';
+  position: absolute;
+  background-color: #fafafa;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-top: 4px solid var(--main-color);
+}
+
+header ul li:hover::after {
+  left: 0;
+  z-index: -1;
+  transition: var(--main-transition);
+}
+
+header ul li:hover a {
+  color: var(--main-color);
+}
+
+@media (max-width: 400px) {
+  header .container ul > li:first-child {
+    display: block;
+  }
+  header .container ul > li:first-child::after {
+    display: none;
+  }
+  header .container ul > li:first-child .fa-bars {
+    padding: 5px;
+    border: 5px solid black;
+    border-radius: 5px;
+  }
+  .test {
+    display: none !important;
+  }
+  header .container ul li:not(:nth-child(1)) {
+    background-color: white;
+    z-index: 2;
+    /* -webkit-box-shadow: 0 0 10px #ddd;
+    --moz--box-shadow: 0 0 10px #ddd;
+    box-shadow: 0 0 10px #ddd; */
+  }
+  /* header .container ul > li:first-child:hover ~ li {
+    display: block;
+  } */
+  header .container ul {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 230px) {
+  header {
+    height: auto;
+  }
+  header .container {
+    flex-direction: column;
+  }
+  header .container ul {
+    order: 1;
+  }
+  header .container .logo {
+    order: 2;
+  }
+}
+@media (min-width: 401px) and (max-width: 678px) {
+  header .container {
+    flex-direction: column;
+  }
+  header .container .logo {
+    align-self: center;
+    padding: 0px;
+  }
+  header .container ul li {
+    padding: 10px;
+  }
+}
+/* end header  */
+
+/* start landing */
+.landing {
+  height: calc(100vh - 70px);
+}
+.landing .container {
+  width: 100%;
+  height: calc(100vh - 125px);
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+.landing .container::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+  position: absolute;
+  z-index: -1;
+  transform-origin: left top;
+  transform: skewY(-6deg);
+}
+.landing .container .text {
+  padding: 100px 40px;
+}
+.landing .container .text h2 {
+  font-size: 40px;
+  letter-spacing: -2px;
+}
+.landing .container .text p {
+  font-size: 23px;
+  line-height: 1.7;
+  margin-top: 5px;
+  color: #666;
+  max-width: 500px;
+}
+.landing div.image {
+  margin-right: 30px;
+  position: relative;
+}
+.landing div.image img {
+  max-width: 100%;
+  width: 700px;
+  height: 300px;
+  transition: var(--main-transition);
+  animation-name: move;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+@media (max-width: 230px) {
+  .landing {
+    height: calc(100vh - 145.23px);
+  }
+}
+@media (max-width: 992px) {
+  .landing div.image {
+    display: none;
+  }
+  .landing .container {
+    justify-content: center;
+    align-items: center;
+  }
+  .landing .container .text {
+    padding: 10px;
+    text-align: center;
+  }
+}
+.landing i {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--main-color);
+  transition: var(--main-transition);
+  animation-name: bouncing;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes move {
+  to {
+    transform: translateY(100px);
+  }
+}
+@keyframes bouncing {
+  0%,
+  10%,
+  20%,
+  30%,
+  50%,
+  70%,
+  80%,
+  90%,
+  100% {
+    transform: translateY(0);
+  }
+  40%,
+  60% {
+    transform: translateY(-15px);
+  }
+}
+/* end landing */

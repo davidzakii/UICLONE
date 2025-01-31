@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elzero</title>
+    <!-- normalize -->
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <!-- Font Awseom -->
+    <link rel="stylesheet" href="./css/all.css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300&family=Work+Sans:ital,
+      wght@0,200;0,500;0,900;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- main file -->
+    <link rel="stylesheet" href="./css/alzero.css" />
+  </head>
+  <body>
+    <!-- start header -->
+    <header>
+      <div class="container">
+        <div class="logo">
+          <a href="#home"> David </a>
+        </div>
+        <ul id="ul">
+          <li id="faBarsLi"><i class="fa-solid fa-bars"></i></li>
+          <li><a href="#articals">Articles</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#features">Other Link</a></li>
+        </ul>
+      </div>
+    </header>
+    <!-- end header -->
+    <!-- Start Landing  -->
+    <div class="landing">
+      <div class="container">
+        <div class="text">
+          <h2>Welcome, To David World</h2>
+          <p>
+            Here Iam gonna share everything about my life. Books Iam reading,
+            Games Iam Playing, Stories and Events
+          </p>
+        </div>
+        <div class="image">
+          <img src="./images/landing-image.png" alt="" />
+        </div>
+      </div>
+      <i class="fas fa-angle-double-down fa-2x"></i>
+    </div>
+    <!-- End Landing  -->
+    <script>
+      let faBarsLi = document.getElementById('faBarsLi');
+      let lisAfterFaBars = document.querySelectorAll('#faBarsLi ~ li');
+      let afterLi = document.querySelectorAll('#faBarsLi ~ li::after');
+      let ul = document.getElementById('ul');
+      let toggle = true;
+      faBarsLi.addEventListener('click', () => {
+        if (toggle) {
+          for (let li of lisAfterFaBars) {
+            li.classList.add('test');
+          }
+          toggle = !toggle;
+        } else {
+          for (let li of lisAfterFaBars) {
+            li.classList.remove('test');
+          }
+          toggle = !toggle;
+        }
+      });
+    </script>
+  </body>
+</html>
